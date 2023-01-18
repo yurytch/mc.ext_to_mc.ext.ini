@@ -7,13 +7,13 @@ BEGIN \
   print "[mc.ext.ini]" ; print "Version=4.0\n"
 }
 
-/^([^#]*)(regex|type|shell|include)\/(.*)$/ \
+/^([^#]*)(regex|type|shell|include|directory)\/(.*)$/ \
 {
   if ( 1 == section_head ) multi_sections()
 
   section_head = 1
     print "#" $0 # JFYI
-  match( $0 , /^([^#]*)(regex|type|shell|include)\/(.*)$/ , aa ); # !!! might need to check the return
+  match( $0 , /^([^#]*)(regex|type|shell|include|directory)\/(.*)$/ , aa ); # !!! might need to check the return
   sect = toupper(substr(aa[2],1,1)) tolower(substr(aa[2],2)) 
 
   rr = split($0,a,sect"/") ; if (rr<2) fail_split()
