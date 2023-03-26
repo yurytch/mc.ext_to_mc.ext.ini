@@ -61,11 +61,11 @@ END \
 
 function multi_sections () \
 {
-  print "FAIL: two subsequent section headers (with no actions for the preceding one), line " FNR ": " $0 ;
+  print "FAIL: two subsequent section headers (with no actions for the preceding one), line " FNR ": " $0 >> "/dev/stderr" ;
   exit 111 ;
 }
 function fail_split () \
 {
-  print "FAIL: splitting section header produced no right hand value, line " FNR ": " $0 ;
+  print "FAIL: splitting section header produced no right hand value, line " FNR ": " $0 >> "/dev/stderr" ;
   exit 111 ;
 }
